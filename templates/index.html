@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Editor JSON</title>
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    </head>
+    <body onload="cargarDatos()"> <h2>Configuración del Proyecto</h2>
+        
+        <div class="campo">
+            <label>Nombre del Proyecto:</label>
+            <input type="text" id="nombre">
+        </div>
+
+        <div class="campo">
+            <label>Versión:</label>
+            <input type="number" id="version">
+        </div>
+
+        <button onclick="guardarCambios()">Guardar Cambios</button>
+        <button onclick="verCambios()">Ver Cambios</button>
+        <form action="/testing">
+            <button>Volver al Inicio</button>
+        </form>
+        <p id="status"></p>
+
+        <script src="../static/js/script.js"></script>
+    </body>
+</html>
