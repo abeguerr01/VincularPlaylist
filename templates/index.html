@@ -1,28 +1,34 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Editor JSON</title>
-        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    </head>
-    <body onload="cargarDatos()"> <h2>Configuración del Proyecto</h2>
-        
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Vincular Playlist</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body onload="cargarConfiguracion()">
+
+    <h2>Configuración del Scraper</h2>
+    
+    <div class="config-container">
         <div class="campo">
-            <label>Nombre del Proyecto:</label>
-            <input type="text" id="nombre">
+            <label>Selecciona Plataforma:</label>
+            <div class="input-group">
+                <select id="plataforma">
+                    <option value="ytmusic">YT Music</option>
+                    <option value="spotify">Spotify</option>
+                </select>
+                <input type="text" id="url" placeholder="Pega la URL de la playlist aquí">
+            </div>
         </div>
+    </div>
 
-        <div class="campo">
-            <label>Versión:</label>
-            <input type="number" id="version">
-        </div>
+    <div class="botones">
+        <button onclick="guardarConfiguracion()" class="btn-save">Guardar Configuración</button>
+        <button onclick="iniciarScraper()" class="btn-start">Iniciar Scraper</button>
+    </div>
 
-        <button onclick="guardarCambios()">Guardar Cambios</button>
-        <button onclick="verCambios()">Ver Cambios</button>
-        <form action="/testing">
-            <button>Volver al Inicio</button>
-        </form>
-        <p id="status"></p>
+    <p id="status"></p>
 
-        <script src="../static/js/script.js"></script>
-    </body>
+    <script src="/static/js/script.js"></script>
+</body>
 </html>
