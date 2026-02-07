@@ -4,6 +4,7 @@ import threading
 import webview
 from flask import Flask, render_template, request, jsonify
 import scripts.scraper as scraper
+import scripts.funcSpotify as dc
 
 app = Flask(__name__)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))

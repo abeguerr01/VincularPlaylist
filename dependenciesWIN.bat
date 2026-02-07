@@ -1,46 +1,53 @@
 @echo off
-title Instalador de Python y Librerias
-set ARCHIVO_REQUISITOS=requeriments.txt
+title Instalador de Dependencias Python
+setlocal
+pushd "%~dp0" >nul
 
-echo =========================================
-echo   COMPROBANDO PYTHON EN EL SISTEMA
-echo =========================================
+set "PYCMD="
 
-:: 1. Comprobar si Python esta instalado
-python --version >nul 2>&1
-if %errorlevel% neq 0 (
-    echo [!] Python no encontrado. Intentando instalar via winget...
-    
-    :: Intentar instalar Python usando winget
-    winget install -e --id Python.Python.3 --source winget --accept-package-agreements --accept-source-agreements
-    
-    if %errorlevel% neq 0 (
-        echo [X] Error: No se pudo instalar Python. Asegurate de tener Windows 10 o 11.
-        pause
-        exit /b
-    )
-    echo [!] Python instalado. IMPORTANTE: Es posible que debas cerrar y abrir este script.
-) else (
-    echo [OK] Python ya esta instalado.
+rem Buscar python o el lanzador py
+where python >nul 2>&1 && set "PYCMD=python"
+if "%PYCMD%"=="" (
+    where py >nul 2>&1 && set "PYCMD=py -3"
 )
 
-:: 2. Verificar si el archivo .txt existe
-if exist %ARCHIVO_REQUISITOS% (
+if "%PYCMD%"=="" (
+    echo [ERROR] Python no esta instalado o no se encuentra en el PATH.
+    goto :SALIDA
+)
+
+rem Verificamos que ahora el nombre sea el correcto
+if not exist "requirements.txt" (
+    echo [ERROR] No se encontro el archivo requirements.txt.
+    echo Asegurate de que el nombre este bien escrito en la carpeta.
+    goto :SALIDA
+)
+
+echo ====================================================
+echo    Iniciando instalacion de dependencias...
+echo ====================================================
+
+echo [+] Actualizando pip...
+%PYCMD% -m pip install --upgrade pip
+
+echo [+] Instalando librerias desde requirements.txt...
+%PYCMD% -m pip install -r requirements.txt
+
+if %errorlevel% equ 0 (
     echo.
-    echo --- Instalando librerias desde %ARCHIVO_REQUISITOS% ---
-    python -m pip install --upgrade pip
-    python -m pip install -r %ARCHIVO_REQUISITOS%
-    
-    if %errorlevel% eq 0 (
-        echo.
-        echo [OK] ¡Todo se ha instalado correctamente!
-    ) else (
-        echo [X] Hubo un error al instalar las librerias.
-    )
+    echo ====================================================
+    echo    [EXITO] Todas las librerias se instalaron bien.
+    echo ====================================================
 ) else (
-    echo [X] Error: No se encontro el archivo %ARCHIVO_REQUISITOS%.
+    echo.
+    echo [!] Hubo algunos errores durante la instalacion.
 )
 
+:SALIDA
 echo.
-echo Presiona cualquier tecla para salir...
+echo ====================================================
+echo Dale a cualquier tecla para continuar...
+echo ====================================================
 pause >nul
+popd >nul
+exit
