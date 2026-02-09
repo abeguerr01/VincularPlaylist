@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionar Origen - Migración de Playlist</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="step-indicator">
+            <div class="step active">
+                <div class="step-number">1</div>
+                <div class="step-label">Origen</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-label">Destino</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-label">Configurar</div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-label">Migrar</div>
+            </div>
+        </div>
+
+        <h2>¿De qué plataforma deseas exportar tu playlist?</h2>
+        
+        <div class="botones">
+            <button class="btn btn-spotify" onclick="seleccionarOrigen('Spotify')">
+                🎵 Spotify
+            </button>
+            <button class="btn btn-youtube" onclick="seleccionarOrigen('YTMusic')">
+                ▶️ YouTube Music
+            </button>
+        </div>
+
+        <div id="status" class="status"></div>
+
+        <div class="botones" style="margin-top: 40px;">
+            <a href="/" style="text-decoration: none;">
+                <button class="btn btn-secondary">⬅️ Volver</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        async function seleccionarOrigen(plataforma) {
+            const status = document.getElementById('status');
+            status.className = 'status loading';
+            status.textContent = '⏳ Guardando selección...';
+            
+            try {
+                const res = await fetch('/guardar-origen', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ plataforma })
+                });
+                
+                const data = await res.json();
+                
+                if (data.status === 'success') {
+                    status.className = 'status success';
+                    status.textContent = `✅ ${plataforma} seleccionado como origen`;
+                    
+                    // Redirigir después de 1 segundo
+                    setTimeout(() => {
+                        window.location.href = '/seleccionar-destino';
+                    }, 1000);
+                } else {
+                    status.className = 'status error';
+                    status.textContent = '❌ Error al guardar la selección';
+                }
+            } catch (err) {
+                status.className = 'status error';
+                status.textContent = '❌ Error de conexión con el servidor';
+                console.error(err);
+            }
+        }
+    </script>
+</body>
+</html>

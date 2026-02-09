@@ -2,33 +2,25 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Vincular Playlist</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migración de Playlist</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
-<body onload="cargarConfiguracion()">
-
-    <h2>Configuración del Scraper</h2>
-    
-    <div class="config-container">
-        <div class="campo">
-            <label>Selecciona Plataforma:</label>
-            <div class="input-group">
-                <select id="plataforma">
-                    <option value="ytmusic">YT Music</option>
-                    <option value="spotify">Spotify</option>
-                </select>
-                <input type="text" id="url" placeholder="Pega la URL de la playlist aquí">
-            </div>
+<body>
+    <div class="container">
+        <div class="logo">🎵</div>
+        <h1>Migración de Playlist</h1>
+        <p class="subtitle">Transfiere tus playlists entre plataformas de forma sencilla</p>
+        
+        <div class="botones">
+            <a href="/seleccionar-origen" style="text-decoration: none;">
+                <button class="btn btn-primary">EMPEZAR</button>
+            </a>
         </div>
+        
+        <p style="text-align: center; color: #888; margin-top: 30px; font-size: 0.9em;">
+            Soporta Spotify y YouTube Music
+        </p>
     </div>
-
-    <div class="botones">
-        <button onclick="guardarConfiguracion()" class="btn-save">Guardar Configuración</button>
-        <button onclick="iniciarScraper()" class="btn-start">Iniciar Scraper</button>
-    </div>
-
-    <p id="status"></p>
-
-    <script src="/static/js/script.js"></script>
 </body>
 </html>

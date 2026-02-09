@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados - Migración de Playlist</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="step-indicator">
+            <div class="step completed">
+                <div class="step-number">✓</div>
+                <div class="step-label">Origen</div>
+            </div>
+            <div class="step completed">
+                <div class="step-number">✓</div>
+                <div class="step-label">Destino</div>
+            </div>
+            <div class="step completed">
+                <div class="step-number">✓</div>
+                <div class="step-label">Configurar</div>
+            </div>
+            <div class="step active">
+                <div class="step-number">4</div>
+                <div class="step-label">Completado</div>
+            </div>
+        </div>
+
+        <div class="summary-card">
+            <h3 id="total-canciones">0 canciones</h3>
+            <p>extraídas exitosamente</p>
+        </div>
+
+        <div class="selection-info">
+            <p><strong>De:</strong> <span id="origen-nombre" class="platform-badge">...</span></p>
+            <div class="arrow">⬇️</div>
+            <p><strong>Hacia:</strong> <span id="destino-nombre" class="platform-badge">...</span></p>
+        </div>
+
+        <h2>Canciones extraídas</h2>
+        
+        <div class="results-container">
+            <div id="song-list" class="song-list">
+                <p style="text-align: center; color: #888;">Cargando canciones...</p>
+            </div>
+        </div>
+
+        <div class="botones" style="margin-top: 30px;">
+            <button class="btn btn-primary" onclick="descargarJSON()">
+                💾 Descargar JSON
+            </button>
+            <button class="btn btn-youtube" onclick="importarAYTMusic()" id="btnImportar">
+                ▶️ Importar a YouTube Music
+            </button>
+            <a href="/" style="text-decoration: none;">
+                <button class="btn btn-secondary">🔄 Nueva Migración</button>
+            </a>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+            <p style="color: #555; margin: 0; text-align: center;">
+                <strong>Ubicación del archivo:</strong><br>
+                <code style="background: white; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-top: 8px;">
+                    data/playlist_final.json
+                </code>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        async function cargarResultados() {
+            try {
+                const res = await fetch('/obtener-resultados');
+                const data = await res.json();
+                
+                if (data.status === 'success') {
+                    const { canciones, config } = data;
+                    
+                    // Actualizar total
+                    document.getElementById('total-canciones').textContent = 
+                        `${canciones.length} ${canciones.length === 1 ? 'canción' : 'canciones'}`;
+                    
+                    // Actualizar origen y destino
+                    document.getElementById('origen-nombre').textContent = config.origen || 'N/A';
+                    document.getElementById('destino-nombre').textContent = config.destino || 'N/A';
+                    
+                    // Añadir clases de badge
+                    const origenBadge = document.getElementById('origen-nombre');
+                    const destinoBadge = document.getElementById('destino-nombre');
+                    
+                    if (config.origen && config.origen.toLowerCase() === 'spotify') {
+                        origenBadge.classList.add('badge-spotify');
+                    } else {
+                        origenBadge.classList.add('badge-youtube');
+                    }
+                    
+                    if (config.destino && config.destino.toLowerCase() === 'spotify') {
+                        destinoBadge.classList.add('badge-spotify');
+                    } else {
+                        destinoBadge.classList.add('badge-youtube');
+                    }
+                    
+                    // Mostrar lista de canciones
+                    const listContainer = document.getElementById('song-list');
+                    
+                    if (canciones.length === 0) {
+                        listContainer.innerHTML = '<p style="text-align: center; color: #888;">No se encontraron canciones</p>';
+                        return;
+                    }
+                    
+                    listContainer.innerHTML = canciones.map((cancion, index) => `
+                        <div class="song-item">
+                            <div class="song-title">${index + 1}. ${cancion.titulo || cancion.name || 'Sin título'}</div>
+                            <div class="song-artist">${cancion.artista || cancion.artist || 'Artista desconocido'}</div>
+                        </div>
+                    `).join('');
+                } else {
+                    document.getElementById('song-list').innerHTML = 
+                        '<p style="text-align: center; color: #888;">No se pudieron cargar los resultados</p>';
+                }
+            } catch (err) {
+                console.error('Error al cargar resultados:', err);
+                document.getElementById('song-list').innerHTML = 
+                    '<p style="text-align: center; color: #dc3545;">Error al cargar los resultados</p>';
+            }
+        }
+
+        function descargarJSON() {
+            // Crear enlace de descarga
+            const link = document.createElement('a');
+            link.href = '/static/../data/playlist_final.json';
+            link.download = 'playlist_final.json';
+            link.click();
+        }
+
+        async function importarAYTMusic() {
+            const btnImportar = document.getElementById('btnImportar');
+            const originalText = btnImportar.textContent;
+            
+            // Pedir confirmación y nombre de playlist
+            const nombrePlaylist = prompt('¿Qué nombre quieres para la playlist en YouTube Music?', 'Playlist Migrada');
+            
+            if (!nombrePlaylist) {
+                return; // Usuario canceló
+            }
+            
+            // Deshabilitar botón y mostrar estado
+            btnImportar.disabled = true;
+            btnImportar.textContent = '⏳ Importando...';
+            btnImportar.style.opacity = '0.6';
+            
+            try {
+                const res = await fetch('/importar-ytmusic', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        nombre_playlist: nombrePlaylist,
+                        descripcion: 'Playlist migrada desde la aplicación'
+                    })
+                });
+                
+                const data = await res.json();
+                
+                if (data.status === 'success') {
+                    alert(`✅ ¡Éxito! Playlist creada con ${data.total_canciones} canciones.\n\n` +
+                          `Playlist ID: ${data.playlist_id}\n` +
+                          (data.canciones_no_encontradas.length > 0 
+                            ? `\n⚠️ ${data.canciones_no_encontradas.length} canciones no se encontraron` 
+                            : ''));
+                    
+                    btnImportar.textContent = '✅ Importado';
+                    btnImportar.style.background = 'linear-gradient(135deg, #1DB954 0%, #1ed760 100%)';
+                } else {
+                    alert(`❌ Error: ${data.mensaje}`);
+                    btnImportar.disabled = false;
+                    btnImportar.textContent = originalText;
+                    btnImportar.style.opacity = '1';
+                }
+            } catch (err) {
+                console.error('Error al importar:', err);
+                alert('❌ Error al conectar con el servidor. Revisa la consola para más detalles.');
+                btnImportar.disabled = false;
+                btnImportar.textContent = originalText;
+                btnImportar.style.opacity = '1';
+            }
+        }
+
+        // Cargar resultados al iniciar
+        cargarResultados();
+    </script>
+</body>
+</html>

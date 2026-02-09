@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurar - Migración de Playlist</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="step-indicator">
+            <div class="step completed">
+                <div class="step-number">✓</div>
+                <div class="step-label">Origen</div>
+            </div>
+            <div class="step completed">
+                <div class="step-number">✓</div>
+                <div class="step-label">Destino</div>
+            </div>
+            <div class="step active">
+                <div class="step-number">3</div>
+                <div class="step-label">Configurar</div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-label">Migrar</div>
+            </div>
+        </div>
+
+        <div class="selection-info">
+            <p><strong>De:</strong> <span id="origen-nombre" class="platform-badge">...</span></p>
+            <div class="arrow">⬇️</div>
+            <p><strong>Hacia:</strong> <span id="destino-nombre" class="platform-badge">...</span></p>
+        </div>
+
+        <h2>Configura tu playlist de origen</h2>
+        
+        <div class="form-group">
+            <label for="url">URL de la playlist de <span id="origen-label"></span>:</label>
+            <input 
+                type="url" 
+                id="url" 
+                placeholder="Pega aquí la URL de tu playlist"
+                required
+            >
+            <small style="color: #888; display: block; margin-top: 8px;">
+                Ejemplo: https://open.spotify.com/playlist/... o https://music.youtube.com/playlist?list=...
+            </small>
+        </div>
+
+        <div class="botones">
+            <button class="btn btn-primary" onclick="iniciarMigracion()">
+                🚀 Iniciar Migración
+            </button>
+        </div>
+
+        <div id="status" class="status"></div>
+
+        <div class="botones" style="margin-top: 40px;">
+            <a href="/seleccionar-destino" style="text-decoration: none;">
+                <button class="btn btn-secondary">⬅️ Volver</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        let configActual = {};
+
+        // Cargar configuración al iniciar
+        async function cargarConfiguracion() {
+            try {
+                const res = await fetch('/obtener-datos');
+                const data = await res.json();
+                
+                if (!data.origen || !data.destino) {
+                    window.location.href = '/seleccionar-origen';
+                    return;
+                }
+                
+                configActual = data;
+                
+                // Actualizar UI
+                document.getElementById('origen-nombre').textContent = data.origen;
+                document.getElementById('destino-nombre').textContent = data.destino;
+                document.getElementById('origen-label').textContent = data.origen;
+                
+                // Añadir clases de badge
+                const origenBadge = document.getElementById('origen-nombre');
+                const destinoBadge = document.getElementById('destino-nombre');
+                
+                if (data.origen.toLowerCase() === 'spotify') {
+                    origenBadge.classList.add('badge-spotify');
+                } else {
+                    origenBadge.classList.add('badge-youtube');
+                }
+                
+                if (data.destino.toLowerCase() === 'spotify') {
+                    destinoBadge.classList.add('badge-spotify');
+                } else {
+                    destinoBadge.classList.add('badge-youtube');
+                }
+                
+                // Si hay URL guardada, cargarla
+                if (data.url_origen) {
+                    document.getElementById('url').value = data.url_origen;
+                }
+            } catch (err) {
+                console.error('Error al cargar configuración:', err);
+            }
+        }
+
+        async function iniciarMigracion() {
+            const url = document.getElementById('url').value.trim();
+            const status = document.getElementById('status');
+            
+            if (!url) {
+                status.className = 'status error';
+                status.textContent = '❌ Por favor ingresa la URL de la playlist';
+                return;
+            }
+            
+            // Validar que la URL sea correcta según la plataforma
+            const origen = configActual.origen.toLowerCase();
+            if (origen === 'spotify' && !url.includes('spotify.com')) {
+                status.className = 'status error';
+                status.textContent = '❌ La URL debe ser de Spotify';
+                return;
+            }
+            if (origen === 'ytmusic' && !url.includes('music.youtube.com')) {
+                status.className = 'status error';
+                status.textContent = '❌ La URL debe ser de YouTube Music';
+                return;
+            }
+            
+            // Guardar URL
+            status.className = 'status loading';
+            status.textContent = '⏳ Guardando configuración...';
+            
+            try {
+                await fetch('/guardar-url', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url })
+                });
+                
+                // Iniciar migración
+                status.textContent = '⏳ Extrayendo información de la playlist... Esto puede tomar unos minutos.';
+                
+                const res = await fetch('/iniciar-migracion', {
+                    method: 'POST'
+                });
+                
+                const data = await res.json();
+                
+                if (data.status === 'success') {
+                    status.className = 'status success';
+                    status.textContent = `✅ ¡Éxito! ${data.total} canciones extraídas`;
+                    
+                    // Redirigir a resultados
+                    setTimeout(() => {
+                        window.location.href = '/resultados';
+                    }, 2000);
+                } else {
+                    status.className = 'status error';
+                    status.textContent = `❌ Error: ${data.mensaje}`;
+                }
+            } catch (err) {
+                status.className = 'status error';
+                status.textContent = '❌ Error al procesar la migración';
+                console.error(err);
+            }
+        }
+
+        // Cargar configuración al iniciar
+        cargarConfiguracion();
+
+        // Permitir enviar con Enter
+        document.getElementById('url').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                iniciarMigracion();
+            }
+        });
+    </script>
+</body>
+</html>

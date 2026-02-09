@@ -115,3 +115,11 @@ def scrape_spotify_playlist(url, ruta_json):
 
         browser.close()
         return canciones
+    
+if __name__ == "__main__":
+    # Ejemplo de uso
+    url_spotify = "https://open.spotify.com/playlist/ID_DE_LA_PLAYLIST"
+    url_ytmusic = "https://music.youtube.com/playlist?list=ID_DE_LA_PLAYLIST"
+
+    scrape_spotify_playlist(url_spotify, "data/spotify_playlist.json")
+    scrape_yt_music_playlist(url_ytmusic, "data/ytmusic_playlist.json")

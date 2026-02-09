@@ -1,302 +1,152 @@
 [
     {
-        "titulo": "Taylor Swift",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "4:20"
+        "titulo": "PERRO NEGRO",
+        "artista": "Bad Bunny, Feid",
+        "album": "nadie sabe lo que va a pasar mañana",
+        "duracion": "2:42"
     },
     {
-        "titulo": "Chance Peña",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "2:26"
+        "titulo": "Solida",
+        "artista": "Almighty",
+        "album": "Solida",
+        "duracion": "2:33"
     },
     {
-        "titulo": "Gracie Abrams",
-        "artista": "The Buccaneers: Season 1 (Apple TV+ Original Series Soundtrack)",
-        "album": "N/A",
-        "duracion": "4:13"
+        "titulo": "150 CANCIONES",
+        "artista": "Recycled J, Selecta",
+        "album": "150 CANCIONES",
+        "duracion": "2:07"
     },
     {
-        "titulo": "Mazzy Star",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "4:22"
+        "titulo": "Más Alcohol",
+        "artista": "Natos y Waor, Recycled J, Hijos de la Ruina",
+        "album": "Más Alcohol",
+        "duracion": "4:00"
     },
     {
-        "titulo": "Olivia Dean",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:33"
+        "titulo": "Mal de amores",
+        "artista": "Natos y Waor, Israel B",
+        "album": "Mal de amores",
+        "duracion": "4:15"
     },
     {
-        "titulo": "sombr",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:22"
+        "titulo": "Underground Kings",
+        "artista": "Natos y Waor",
+        "album": "Cicatrices",
+        "duracion": "2:42"
     },
     {
-        "titulo": "Henry Moodie",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:21"
+        "titulo": "Mal de amores",
+        "artista": "Natos y Waor, Israel B",
+        "album": "Mal de amores",
+        "duracion": "4:15"
     },
     {
-        "titulo": "Billie Eilish",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:21"
+        "titulo": "Platos Rotos",
+        "artista": "LosNiñosDelCaminito",
+        "album": "Platos Rotos",
+        "duracion": "6:10"
     },
     {
-        "titulo": "The 1975",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "5:27"
+        "titulo": "Bicho raro",
+        "artista": "Natos y Waor",
+        "album": "Cicatrices",
+        "duracion": "3:57"
     },
     {
-        "titulo": "Mitski",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "2:50"
+        "titulo": "A Corazón Abierto",
+        "artista": "Natos y Waor",
+        "album": "Martes 13",
+        "duracion": "3:38"
     },
     {
-        "titulo": "Benson Boone",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:37"
+        "titulo": "Tarot",
+        "artista": "Bad Bunny, JHAYCO",
+        "album": "Un Verano Sin Ti",
+        "duracion": "3:57"
     },
     {
-        "titulo": "Ariana Grande",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:19"
-    },
-    {
-        "titulo": "The Marías",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:56"
-    },
-    {
-        "titulo": "Billie Eilish",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "4:42"
-    },
-    {
-        "titulo": "Bon Iver",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "4:47"
-    },
-    {
-        "titulo": "Zach Bryan",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:06"
-    },
-    {
-        "titulo": "Tom Odell",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:40"
-    },
-    {
-        "titulo": "Harry Styles",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "6:20"
-    },
-    {
-        "titulo": "David Kushner",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:36"
-    },
-    {
-        "titulo": "Cigarettes After Sex",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:35"
-    },
-    {
-        "titulo": "Clairo",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:16"
-    },
-    {
-        "titulo": "Michael Marcagi",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "2:40"
-    },
-    {
-        "titulo": "d4vd",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:24"
-    },
-    {
-        "titulo": "JVKE",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:17"
-    },
-    {
-        "titulo": "Bon Iver",
-        "artista": "The Twilight Saga: New Moon (Original Motion Picture Soundtrack)",
-        "album": "N/A",
-        "duracion": "4:50"
-    },
-    {
-        "titulo": "Dove Cameron",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:51"
-    },
-    {
-        "titulo": "Cian Ducrot",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:43"
-    },
-    {
-        "titulo": "Taylor Swift",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:56"
-    },
-    {
-        "titulo": "Conan Gray",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "4:11"
-    },
-    {
-        "titulo": "Cigarettes After Sex",
-        "artista": "Cigarettes After Sex",
-        "album": "N/A",
-        "duracion": "4:51"
-    },
-    {
-        "titulo": "Chappell Roan",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:08"
-    },
-    {
-        "titulo": "JVKE",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "2:34"
-    },
-    {
-        "titulo": "Lorde",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "2:54"
-    },
-    {
-        "titulo": "Adrianne Lenker",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "4:11"
-    },
-    {
-        "titulo": "Joy Crookes",
-        "artista": "N/A",
-        "album": "N/A",
+        "titulo": "Napoleón",
+        "artista": "Ill Pekeño, LOWLIGHT",
+        "album": "P.E.K.E. (Poca Estatura Korazón Enorme)",
         "duracion": "2:57"
     },
     {
-        "titulo": "Bon Iver",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:34"
+        "titulo": "Maravilla",
+        "artista": "Recycled J",
+        "album": "Maravilla",
+        "duracion": "2:07"
     },
     {
-        "titulo": "Victor Ray",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:20"
+        "titulo": "IA",
+        "artista": "Clarent, Mora",
+        "album": "IA",
+        "duracion": "4:00"
     },
     {
-        "titulo": "Lizzy McAlpine",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "2:39"
+        "titulo": "Luck Ra: Bzrp Music Sessions, Vol. 61/66",
+        "artista": "Bizarrap, Luck Ra",
+        "album": "Luck Ra: Bzrp Music Sessions, Vol. 61/66",
+        "duracion": "Luck Ra: Bzrp Music Sessions, Vol. 61/66\nBizarrap, Luck Ra"
     },
     {
-        "titulo": "ROLE MODEL",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:37"
+        "titulo": "BOKeTE",
+        "artista": "Bad Bunny",
+        "album": "DeBÍ TiRAR MáS FOToS",
+        "duracion": "3:35"
     },
     {
-        "titulo": "Charlie Noordewier",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "4:13"
+        "titulo": "BAILE INoLVIDABLE",
+        "artista": "Bad Bunny",
+        "album": "DeBÍ TiRAR MáS FOToS",
+        "duracion": "6:07"
     },
     {
-        "titulo": "August Ponthier",
-        "artista": "I'm Crying, Are You?",
-        "album": "N/A",
-        "duracion": "3:01"
+        "titulo": "NUEVAYoL",
+        "artista": "Bad Bunny",
+        "album": "DeBÍ TiRAR MáS FOToS",
+        "duracion": "3:03"
     },
     {
-        "titulo": "Holly Humberstone",
-        "artista": "N/A",
-        "album": "N/A",
+        "titulo": "CAFé CON RON",
+        "artista": "Bad Bunny, Los Pleneros de la Cresta",
+        "album": "DeBÍ TiRAR MáS FOToS",
+        "duracion": "3:48"
+    },
+    {
+        "titulo": "Veneno",
+        "artista": "Naiara, Natos y Waor",
+        "album": "Veneno",
+        "duracion": "3:48"
+    },
+    {
+        "titulo": "RETIRADA",
+        "artista": "Milo j",
+        "album": "166 (DELUXE) retirada",
+        "duracion": "2:51"
+    },
+    {
+        "titulo": "OJALA",
+        "artista": "Milo j, Bhavi",
+        "album": "166 (DELUXE) retirada",
         "duracion": "2:53"
     },
     {
-        "titulo": "Sadie Jean",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:25"
+        "titulo": "HALO",
+        "artista": "Quevedo, La Pantera",
+        "album": "BUENAS NOCHES",
+        "duracion": "3:01"
     },
     {
-        "titulo": "Michael Marcagi",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:25"
+        "titulo": "FARDOS",
+        "artista": "JC Reyes, De La Ghetto",
+        "album": "FARDOS",
+        "duracion": "3:03"
     },
     {
-        "titulo": "Hayley Williams",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:34"
-    },
-    {
-        "titulo": "Rachel Chinouriri",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "2:41"
-    },
-    {
-        "titulo": "Drew Erwin",
-        "artista": "Down the Line",
-        "album": "N/A",
-        "duracion": "4:36"
-    },
-    {
-        "titulo": "Nadia Kadek",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "2:56"
-    },
-    {
-        "titulo": "Etta Marcus",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "4:30"
-    },
-    {
-        "titulo": "Michael Marcagi",
-        "artista": "N/A",
-        "album": "N/A",
-        "duracion": "3:16"
+        "titulo": "MR. MOONDIAL",
+        "artista": "Quevedo, Pitbull",
+        "album": "BUENAS NOCHES",
+        "duracion": "2:45"
     }
 ]
