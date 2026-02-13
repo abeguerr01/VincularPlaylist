@@ -281,18 +281,6 @@ def importar_yt_music():
         except ImportError:
             pass
         
-        # Intento 2: Import con sys.path
-        if crear_playlist_yt_music is None:
-            try:
-                import sys
-                scripts_path = os.path.join(BASE_DIR, 'scripts')
-                if scripts_path not in sys.path:
-                    sys.path.insert(0, scripts_path)
-                from importYTmusic import crear_playlist_yt_music
-                print("✅ Módulo importado (método 2)")
-            except ImportError:
-                pass
-        
         # Intento 3: Import absoluto
         if crear_playlist_yt_music is None:
             try:
@@ -370,18 +358,6 @@ def autenticar_ytmusic():
             print("✅ Función de autenticación importada (método 1)")
         except ImportError:
             pass
-        
-        # Intento 2: Import con sys.path
-        if autenticar_youtube_music is None:
-            try:
-                import sys
-                scripts_path = os.path.join(BASE_DIR, 'scripts')
-                if scripts_path not in sys.path:
-                    sys.path.insert(0, scripts_path)
-                from importYTmusic import autenticar_youtube_music
-                print("✅ Función de autenticación importada (método 2)")
-            except ImportError:
-                pass
         
         # Intento 3: Import absoluto
         if autenticar_youtube_music is None:

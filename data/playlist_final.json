@@ -1,15 +1,9 @@
 [
     {
-        "titulo": "PERRO NEGRO",
-        "artista": "Bad Bunny, Feid",
-        "album": "nadie sabe lo que va a pasar mañana",
-        "duracion": "2:42"
-    },
-    {
-        "titulo": "Solida",
-        "artista": "Almighty",
-        "album": "Solida",
-        "duracion": "2:33"
+        "titulo": "Sin-Ceros",
+        "artista": "SFDK, Natos y Waor",
+        "album": "Inkebrantable",
+        "duracion": "3:55"
     },
     {
         "titulo": "150 CANCIONES",
@@ -18,135 +12,21 @@
         "duracion": "2:07"
     },
     {
+        "titulo": "GRIS",
+        "artista": "Quevedo, ROSO",
+        "album": "GRIS",
+        "duracion": "3:07"
+    },
+    {
         "titulo": "Más Alcohol",
         "artista": "Natos y Waor, Recycled J, Hijos de la Ruina",
         "album": "Más Alcohol",
         "duracion": "4:00"
     },
     {
-        "titulo": "Mal de amores",
-        "artista": "Natos y Waor, Israel B",
-        "album": "Mal de amores",
-        "duracion": "4:15"
-    },
-    {
-        "titulo": "Underground Kings",
-        "artista": "Natos y Waor",
-        "album": "Cicatrices",
-        "duracion": "2:42"
-    },
-    {
-        "titulo": "Mal de amores",
-        "artista": "Natos y Waor, Israel B",
-        "album": "Mal de amores",
-        "duracion": "4:15"
-    },
-    {
-        "titulo": "Platos Rotos",
-        "artista": "LosNiñosDelCaminito",
-        "album": "Platos Rotos",
-        "duracion": "6:10"
-    },
-    {
-        "titulo": "Bicho raro",
-        "artista": "Natos y Waor",
-        "album": "Cicatrices",
-        "duracion": "3:57"
-    },
-    {
-        "titulo": "A Corazón Abierto",
-        "artista": "Natos y Waor",
-        "album": "Martes 13",
-        "duracion": "3:38"
-    },
-    {
-        "titulo": "Tarot",
-        "artista": "Bad Bunny, JHAYCO",
-        "album": "Un Verano Sin Ti",
-        "duracion": "3:57"
-    },
-    {
-        "titulo": "Napoleón",
-        "artista": "Ill Pekeño, LOWLIGHT",
-        "album": "P.E.K.E. (Poca Estatura Korazón Enorme)",
-        "duracion": "2:57"
-    },
-    {
-        "titulo": "Maravilla",
-        "artista": "Recycled J",
-        "album": "Maravilla",
-        "duracion": "2:07"
-    },
-    {
-        "titulo": "IA",
-        "artista": "Clarent, Mora",
-        "album": "IA",
-        "duracion": "4:00"
-    },
-    {
-        "titulo": "Luck Ra: Bzrp Music Sessions, Vol. 61/66",
-        "artista": "Bizarrap, Luck Ra",
-        "album": "Luck Ra: Bzrp Music Sessions, Vol. 61/66",
-        "duracion": "Luck Ra: Bzrp Music Sessions, Vol. 61/66\nBizarrap, Luck Ra"
-    },
-    {
-        "titulo": "BOKeTE",
-        "artista": "Bad Bunny",
-        "album": "DeBÍ TiRAR MáS FOToS",
-        "duracion": "3:35"
-    },
-    {
-        "titulo": "BAILE INoLVIDABLE",
-        "artista": "Bad Bunny",
-        "album": "DeBÍ TiRAR MáS FOToS",
-        "duracion": "6:07"
-    },
-    {
-        "titulo": "NUEVAYoL",
-        "artista": "Bad Bunny",
-        "album": "DeBÍ TiRAR MáS FOToS",
-        "duracion": "3:03"
-    },
-    {
-        "titulo": "CAFé CON RON",
-        "artista": "Bad Bunny, Los Pleneros de la Cresta",
-        "album": "DeBÍ TiRAR MáS FOToS",
-        "duracion": "3:48"
-    },
-    {
-        "titulo": "Veneno",
-        "artista": "Naiara, Natos y Waor",
-        "album": "Veneno",
-        "duracion": "3:48"
-    },
-    {
-        "titulo": "RETIRADA",
-        "artista": "Milo j",
-        "album": "166 (DELUXE) retirada",
-        "duracion": "2:51"
-    },
-    {
-        "titulo": "OJALA",
-        "artista": "Milo j, Bhavi",
-        "album": "166 (DELUXE) retirada",
-        "duracion": "2:53"
-    },
-    {
-        "titulo": "HALO",
-        "artista": "Quevedo, La Pantera",
-        "album": "BUENAS NOCHES",
-        "duracion": "3:01"
-    },
-    {
-        "titulo": "FARDOS",
-        "artista": "JC Reyes, De La Ghetto",
-        "album": "FARDOS",
-        "duracion": "3:03"
-    },
-    {
-        "titulo": "MR. MOONDIAL",
-        "artista": "Quevedo, Pitbull",
-        "album": "BUENAS NOCHES",
-        "duracion": "2:45"
+        "titulo": "A la tumba",
+        "artista": "Natos y Waor, Recycled J, Hijos de la Ruina",
+        "album": "Hijos de la ruina, vol. 3",
+        "duracion": "3:50"
     }
 ]
